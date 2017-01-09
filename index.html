@@ -1,0 +1,156 @@
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="">
+	<script src="src/mvisualizer.js"></script>
+	<style type="text/css">
+		body {
+			background-image: url(css/o_wood.jpg);
+		}
+		
+		.container {
+			margin: 30px auto;
+			position: relative;
+			width: 100%;
+			height: auto;
+			text-align: center;
+		}
+		
+		#canvas {
+			margin: 0px auto;
+			border-radius: 50%;
+		}
+		
+		.songList {
+			list-style: none;
+			max-width: 400;
+			width: 300px;
+			padding: 0;
+			display: inline-block;
+			cursor: default;
+			font-size: 15px;
+			text-align: center;
+		}
+		
+		.songList li {
+			transition: all .5s;
+			margin: 10px 0;
+		}
+		
+		.songList li:hover {
+			background-color: #03a9f4;
+			box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .6);
+		}
+		
+		.songList li:active {
+			background-color: #14389b;
+		}
+		
+		.active {
+			color: #14389b;
+		}
+		
+		.musicContent div {
+			display: inline-block;
+			text-align: left;
+			min-height: 200px;
+			vertical-align: top;
+			color: whitesmoke;
+		}
+		
+		.musicContent input,
+		.musicContent select,
+		.musicContent label {
+			display: inline-block;
+			margin: 5px;
+			font-size: 15px;
+			transition: all .5s;
+		}
+		
+		.musicContent select {
+			background-color: #2196F3;
+			color: whitesmoke;
+		}
+		
+		.musicContent label {
+			display: inline-block;
+			padding: 7px 15px 7px 15px;
+			border-radius: 10px;
+			background-color: rgb(33, 150, 243);
+			font-size: 15px;
+		}
+		
+		.musicContent label:hover {
+			background-color: #03a9f4;
+		}
+		
+		.musicContent label:active {
+			background-color: #14389b;
+		}
+		
+		.disable {
+			text-decoration: line-through;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="musicContent container">
+		<div>
+			<ul id="songList" class="songList">
+				<li title="光阴的故事">光阴的故事</li>
+				<li title="鸿雁">鸿雁</li>
+				<li title="西海情歌">西海情歌</li>
+				<li title="爱在天地间">爱在天地间</li>
+			</ul>
+		</div>
+		<div>
+			<label id="pauseNplay">
+				⏸️ &nbsp;暂停
+			</label>
+			<br>
+			<label id="mute">
+				静音
+			</label>
+			<br>
+			<input id="volumnBtn" type="range" min="0" max="100" value="30" />音量
+			<br/>慢
+			<input id="playSpeed" type="range" min="-1200" max="1200" value="0" />快&nbsp;&nbsp;&nbsp; 播放控制(detune.value)
+			<br/>慢
+			<input id="playRate" type="range" min="100" max="300" value="100" />快&nbsp;&nbsp;&nbsp; 播放控制(playbackRate)：
+
+			<!--
+			<br/>
+<input id="playDuration" type="range" min="0" max="10" value="0" />&nbsp;&nbsp;&nbsp;播放进度
+-->
+			<br/>
+			<input id="loop" type="checkbox" /> 循环播放
+			<br>
+			<select id="visualization">
+				<option value="circle">
+					圆环
+				</option>
+				<option value="rect">
+					柱状
+				</option>
+			</select>
+			<br/>
+			<label id="stopVisualization">
+				停止可视化
+			</label>
+		</div>
+
+	</div>
+
+	<div class="container">
+		<canvas id="canvas" width="300" height="300">
+		</canvas>
+	</div>
+
+	<script src="javascript/index.js"></script>
+</body>
+
+</html>
