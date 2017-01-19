@@ -1,3 +1,23 @@
+/**
+ * 
+ *MVisualizer
+ *Description:html5,原生javascript,css3,web audio api实现的音乐可视化播放器
+ *Auther: Liyuan Dong
+ *Version: 0.1
+ *Github: https://github.com/happydongzh
+ *Date: Jan/12/2017
+ *
+ *
+ *
+ * Bugs:
+ *
+ *
+ * Coming Soon:
+ 	1. 拖拽本地文件进行播放
+	2. 更多可视化效果。
+	3. 
+ **/
+
 (function () {
 	function MVisualizer(options) {
 		this.settings = options || {
@@ -20,7 +40,7 @@
 			//正在播放？
 			this.playing = false,
 
-			//播放计数
+			//播放计数用于切歌
 			this.status = 0,
 
 			//当前音频信息
